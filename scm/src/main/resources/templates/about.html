@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+</head>
+<body>
+    <h1>This is about page</h1>
+    <hr>
+    <!-- using fragment  -->
+<!--    <div class = "host-tag" th:insert = "~{base :: parent}">    -->
+        <div class = "host-tag" th:replace = "${isLogin} ? ~{base :: parent(~{:: section})} : ~{base :: test(~{:: #not_logged_in})}">
+<!--    <div class = "host-tag" th:replace = "~{base :: parent(~{:: section})}">-->
+        <section>
+            <h1>Login</h1>
+            <h2>This is a dynamic content</h2>
+            <p>This html content is sent as a parameter to the parent fragment as dynamic value using ~{::section}</p>
+            <button>Click on Dynamic content</button>
+        </section>
+
+        <section id = "not_logged_in">
+            <h1>User is not logged in</h1>
+        </section>
+    </div>
+</body>
+</html>
