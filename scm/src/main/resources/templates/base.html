@@ -1,9 +1,39 @@
-<div class = "parent-fragment" th:fragment = "parent(content)">  <!-- Creating Fragment th:fragment = "fragmentName"  -->
-        <h1>This is parent fragment</h1>
-        <p>lorem 3949 ahjd  osmsmd aodkowk d kldsl akdma diowskd dijsdoi</p>
-        <div th:replace = "${content}"></div>
-</div>
+<!DOCTYPE html>
+<html class = "light"
+      lang="en"
+      th:fragment = "parent(content, title, script)"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-th-replace="${title}">SCM</title>
+    <link rel = "stylesheet" data-th-href = "@{'/css/output.css'}" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==
+            " crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class = "h-screen w-full dark:bg-gray-900 dark:text-white">
 
-<div th:fragment = "test(content)">
-        <div th:replace = "${content}"></div>
-</div>
+<!-- Content from about page  -->
+    <!-- Common header  -->
+    <div data-th-replace = "~{navbar :: navbar}">
+    </div>
+
+    <hr>
+    <!-- main content  -->
+    <div class = "p-4">
+        <section data-th-replace = "${content}"></section>
+    </div>
+
+    <!-- Common Footer -->
+    <footer class = "p-4">
+        Copyright &copy; 2024
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script data-th-src = "@{'/js/script.js'}"></script>
+    <th:block data-th-replace = "${script}"></th:block>
+</body>
+</html>
