@@ -18,7 +18,8 @@
 
 <!-- Content from about page  -->
     <!-- Common header  -->
-    <div data-th-replace = "~{navbar :: navbar}">
+<!--    <div data-th-replace = "~{navbar :: navbar}">-->
+    <div data-th-replace = "~{navbar2 :: navbar}">
     </div>
 
     <hr>
@@ -35,5 +36,15 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script data-th-src = "@{'/js/script.js'}"></script>
     <th:block data-th-replace = "${script}"></th:block>
+    <script>
+        // JavaScript to toggle the navigation links on mobile view
+        const toggleButton = document.getElementById('toggle_button');
+        const navbarLinks = document.getElementById('navbar-solid-bg');
+
+        toggleButton.addEventListener('click', () => {
+            // Toggle the visibility of the navigation links
+            navbarLinks.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
