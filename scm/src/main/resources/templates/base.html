@@ -9,42 +9,52 @@
     <title data-th-replace="${title}">SCM</title>
     <link rel = "stylesheet" data-th-href = "@{'/css/output.css'}" />
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel = "stylesheet" data-th-href = "@{'/css/style.css'}"/>
+
     <!-- font awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==
             " crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class = "h-screen w-full dark:bg-gray-900 dark:text-white">
+<body class = "h-screen w-full dark:bg-gray-900 bg-gray-100 dark:text-white">
 
 <!-- Content from about page  -->
     <!-- Common header  -->
-<!--    <div data-th-replace = "~{navbar :: navbar}">-->
-    <div data-th-replace = "~{navbar2 :: navbar}">
+    <div data-th-replace = "~{navbar :: navbar}">
     </div>
 
-    <hr>
     <!-- main content  -->
     <div class = "p-4">
         <section data-th-replace = "${content}"></section>
     </div>
 
     <!-- Common Footer -->
-    <footer class = "p-4">
-        Copyright &copy; 2024
-    </footer>
+<!--    <footer class = "p-4">-->
+<!--        Copyright &copy; 2024-->
+<!--    </footer>-->
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script data-th-src = "@{'/js/script.js'}"></script>
     <th:block data-th-replace = "${script}"></th:block>
+
     <script>
         // JavaScript to toggle the navigation links on mobile view
         const toggleButton = document.getElementById('toggle_button');
         const navbarLinks = document.getElementById('navbar-solid-bg');
 
+        // Toggle the visibility of the navigation links on button click
         toggleButton.addEventListener('click', () => {
-            // Toggle the visibility of the navigation links
             navbarLinks.classList.toggle('hidden');
         });
+
+        // Hide the navigation links when screen size is resized to large
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) { // 768px is the breakpoint for 'md' in Tailwind CSS
+                navbarLinks.classList.add('hidden');
+            }
+        });
     </script>
+
+
 </body>
 </html>

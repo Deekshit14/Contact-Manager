@@ -1,4 +1,4 @@
-package com.scm.scm;
+package com.scm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

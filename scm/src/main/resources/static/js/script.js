@@ -1,5 +1,3 @@
-console.log("Script loaded");
-
 let currentTheme = getTheme();
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,5 +40,5 @@ function setTheme(theme) {
 // Get theme from local storage
 function getTheme() {
     let theme = localStorage.getItem("theme");
-    return theme ? theme : "light";
+    return theme ? theme : "dark";
 }
