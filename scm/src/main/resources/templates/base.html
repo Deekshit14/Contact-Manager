@@ -18,10 +18,19 @@
 </head>
 <body class = "h-screen w-full dark:bg-gray-900 bg-gray-100 dark:text-white">
 
-<!-- Content from about page  -->
-    <!-- Common header  -->
-    <div data-th-replace = "~{navbar :: navbar}">
+
+<!-- Common header  -->
+
+    <!-- If user is logged in: navbar -->
+    <div data-th-if = "${loggedInUser}">
+        <div data-th-replace = "~{user/user_navbar :: user-navbar}"></div>
     </div>
+
+    <!-- If user is not logged in: navbar -->
+    <div data-th-unless = "${loggedInUser}">
+        <div data-th-replace = "~{navbar :: navbar}"></div>
+    </div>
+
 
     <!-- main content  -->
     <div class = "p-4">

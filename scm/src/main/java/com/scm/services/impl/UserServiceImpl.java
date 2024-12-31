@@ -52,9 +52,6 @@ public class UserServiceImpl implements UserService {
         // Setting the default user role
         user.setRoleList(List.of(AppConstants.ROLL_USER));
 
-
-        logger.info(user.getProvider().toString());
-
         // Save the new user to the database
         return userRepo.save(user);
     }
@@ -117,6 +114,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers() {
         return userRepo.findAll();
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepo.findByEmail(email).orElse(null);
     }
 
 //    @Override

@@ -65,7 +65,7 @@ public class SecurityConfig {
 
             formLogin.loginPage("/login");  // setting the url for login instead of spring security default login page
             formLogin.loginProcessingUrl("/authenticate");
-            formLogin.defaultSuccessUrl("/user/dashboard");  // Once the login is successful this url page will be displayed
+            formLogin.defaultSuccessUrl("/user/profile");  // Once the login is successful this url page will be displayed
             formLogin.failureUrl("/login?error=true");   // If error then this url page is displayed
 
             formLogin.usernameParameter("email");
@@ -89,16 +89,16 @@ public class SecurityConfig {
 
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
 
-        httpSecurity.logout(logoutForm -> {
-            logoutForm.logoutUrl("/logout");
-            logoutForm.logoutSuccessUrl("/login?logout=true");
-        });
-
-
         // oauth2 configurations
         httpSecurity.oauth2Login(oauth -> {
             oauth.loginPage("/login");    // This is the page where google or github oauth2 will be available
             oauth.successHandler(handler);
+        });
+
+        // logout
+        httpSecurity.logout(logoutForm -> {
+            logoutForm.logoutUrl("/logout");
+            logoutForm.logoutSuccessUrl("/login?logout=true");
         });
 
 

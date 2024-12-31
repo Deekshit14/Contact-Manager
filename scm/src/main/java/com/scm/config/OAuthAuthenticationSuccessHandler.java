@@ -36,19 +36,19 @@ public class OAuthAuthenticationSuccessHandler implements AuthenticationSuccessH
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 
-        logger.info("OAuthAuthenticationSuccessHandler");
+//        logger.info("OAuthAuthenticationSuccessHandler");
 
         // Identify the provider
 //        var oauth2AuthenticationToken = (OAuth2AuthenticationToken)authentication;
         OAuth2AuthenticationToken oauth2AuthenticationToken = (OAuth2AuthenticationToken)authentication;
         String authorizedClientRegistrationId = oauth2AuthenticationToken.getAuthorizedClientRegistrationId();
-        logger.info(authorizedClientRegistrationId);
+//        logger.info(authorizedClientRegistrationId);
 
 //        var oauthUser = (DefaultOAuth2User)authentication.getPrincipal();
         DefaultOAuth2User oauthUser = (DefaultOAuth2User)authentication.getPrincipal();
-        oauthUser.getAttributes().forEach( (key, value) -> {
-            logger.info(key + " : " + value);
-        });
+//        oauthUser.getAttributes().forEach( (key, value) -> {
+//            logger.info(key + " : " + value);
+//        });
 
         User user = new User();
         user.setUserId(UUID.randomUUID().toString());
@@ -134,6 +134,7 @@ public class OAuthAuthenticationSuccessHandler implements AuthenticationSuccessH
         User saveUser = userRepo.findByEmail(user.getEmail()).orElse(null);     // If user with this email not exists then save the user in database
         if (saveUser == null) {
             userRepo.save(user);
+//            System.out.println("user saved " + user.getEmail());
         }
 
         new DefaultRedirectStrategy().sendRedirect(request, response, "/user/profile");     // Used for redirecting once authentication is successful using oauth2

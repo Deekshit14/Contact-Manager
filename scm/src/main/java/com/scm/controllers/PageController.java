@@ -35,7 +35,7 @@ public class PageController {
     public String aboutPage(Model model)
     {
         model.addAttribute("isLogin", true);
-        System.out.println("About page loading");
+//        System.out.println("About page loading");
         return "about";
     }
 
@@ -43,7 +43,7 @@ public class PageController {
     @GetMapping("/services")
     public String services()
     {
-        System.out.println("Services page loading");
+//        System.out.println("Services page loading");
         return "services";
     }
 
@@ -73,10 +73,9 @@ public class PageController {
     }
 
 
-    // processing register
+    // Registration Process page
     @PostMapping ("/do-register")
     public String processRegister(@Valid @ModelAttribute UserForm userForm, BindingResult rBindingResult, HttpSession session) {
-        System.out.println("Processing registration");
 
         // Fetch Form data
 
@@ -101,7 +100,7 @@ public class PageController {
 
             // Save to Database (UserService)
             User savedUser = userService.saveUser(user);
-            System.out.println("user saved");
+//            System.out.println("user saved");
             session.setAttribute("message", new Message("Registration successful", MessageType.green));
         }
         catch (RuntimeException e) {
