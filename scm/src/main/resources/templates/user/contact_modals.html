@@ -1,0 +1,52 @@
+<div data-th-fragment="contact">
+
+    <!-- Main modal -->
+    <div id="view_contact_modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <div class = "space-y-2 text-center">
+                        <img
+                                id = "contact_picture"
+                                class="w-40 h-40 max-w-40 max-h-40 rounded-full"
+                                src="https://toppng.com/uploads/preview/instagram-default-profile-picture-11562973083brycehrmyv.png"
+                                alt="Default profile pic"
+                        >
+                        <h3
+                            id = "contact_name"
+                            class="text-xl font-semibold text-gray-900 dark:text-white">
+                        </h3>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class = "text-gray-800 dark:text-gray-300" id = "contact_email"></p>
+                    <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300" id = "contact_phoneNumber"></p>
+                    <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300" id = "contact_address">Address of your contact</p>
+                    <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300" id = "contact_description">Description of your contact</p>
+                    <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300" id = "contact_websiteLink">https://github.com</p>
+                    <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300" id = "contact_linkedInLink">https://www.linkedin.com</p>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex justify-end items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+<!--                    <button data-modal-hide="default-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800-->
+<!--                        focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5-->
+<!--                        text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">-->
+<!--                        I accept-->
+<!--                    </button>-->
+                    <button
+                        onclick="closeContactModal()"
+                        type="button" class="py-2.5 px-5 ms-3 text-sm font-medium
+                        text-gray-300 focus:outline-none rounded-lg border border-gray-200 bg-gray-500 hover:bg-gray-600
+                        focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800
+                        dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

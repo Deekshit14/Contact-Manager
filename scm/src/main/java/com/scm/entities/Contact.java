@@ -1,5 +1,6 @@
 package com.scm.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -51,6 +52,7 @@ public class Contact {
     @ManyToOne
     @ToString.Exclude  // Prevent circular reference
     @JoinColumn(name = "userId")  // Explicitly naming the foreign key column as 'userId'
+    @JsonIgnore
     private User user;
 
 
